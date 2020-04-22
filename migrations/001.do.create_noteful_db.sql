@@ -11,7 +11,7 @@ CREATE TABLE notes (
   name TEXT NOT NULL,
   content TEXT NOT NULL,
   modified TIMESTAMPTZ DEFAULT now() NOT NULL,
-  folderId uuid REFERENCES folders(id)
+  folder uuid REFERENCES folders(id)
     ON DELETE CASCADE,
   PRIMARY KEY (id)
 );
