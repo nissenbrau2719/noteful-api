@@ -4,7 +4,7 @@ VALUES
   ('b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1','Super'),
   ('b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1','Spangley');
 
-INSERT INTO notes (id, title, modified, folder, content)
+INSERT INTO notes (id, name, modified, folderId, content)
 VALUES
   (
     'cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1', 

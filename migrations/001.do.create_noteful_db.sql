@@ -8,10 +8,10 @@ CREATE TABLE folders (
 
 CREATE TABLE notes (
   id uuid DEFAULT uuid_generate_v4 (),
-  title TEXT NOT NULL,
+  name TEXT NOT NULL,
   content TEXT NOT NULL,
   modified TIMESTAMPTZ DEFAULT now() NOT NULL,
-  folder uuid REFERENCES folders(id)
+  folderId uuid REFERENCES folders(id)
     ON DELETE CASCADE,
   PRIMARY KEY (id)
 );
