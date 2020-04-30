@@ -90,7 +90,7 @@ describe('Notes Endpoints', function() {
     context(`Given the note exists in the database`, () => {
       const testFolders = makeFoldersArray()
       const testNotes = makeNotesArray()
-      beforeEach('insert notes', () => {
+      beforeEach('insert notes/folders', () => {
         return db
           .into('folders')
           .insert(testFolders)
@@ -245,8 +245,14 @@ describe('Notes Endpoints', function() {
     context(`Given the specified note doesn't exist`, () => {
       it('responds with 404', () => {
         const noteId = "13e90aae-c6b3-43b9-99e6-30b355de0c42"
+        const updateNote = {
+          name: 'updated note name',
+          content: 'updated note content',
+          folder: 'b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1'
+        }
         return supertest(app)
-          .delete(`/api/notes/${noteId}`)
+          .patch(`/api/notes/${noteId}`)
+          .send
           .expect(404, { error: { message: `Note doesn't exist`}})
       })
     })
