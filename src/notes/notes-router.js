@@ -81,7 +81,7 @@ notesRouter
       const { name, content, folder } = req.body
       const newNoteData = { name, content, folder }
 
-      const numberOfValues = Object.values(newNoteData)
+      const numberOfValues = Object.values(newNoteData).filter(Boolean).length
       if (numberOfValues === 0) {
         return res.status(400).json({
           error: { message: `Request body must contain either 'name', 'content', or 'folder'` }
