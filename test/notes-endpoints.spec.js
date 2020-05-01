@@ -252,7 +252,7 @@ describe('Notes Endpoints', function() {
         }
         return supertest(app)
           .patch(`/api/notes/${noteId}`)
-          .send
+          .send(updateNote)
           .expect(404, { error: { message: `Note doesn't exist`}})
       })
     })

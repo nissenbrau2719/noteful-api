@@ -3,7 +3,7 @@ const knex = require('knex');
 const app = require('../src/app')
 const { makeFoldersArray } = require('./notes_folders.fixtures')
 
-describe.only('Folders Endpoints', function() {
+describe('Folders Endpoints', function() {
   let db;
   before('make knex instance', () => {
     db = knex({
